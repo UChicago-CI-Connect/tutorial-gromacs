@@ -1,0 +1,16 @@
+Universe = grid
+grid_resource = batch condor dbala@login.ci-connect.uchicago.edu
+
+Executable = gromacs_run.sh
+transfer_input_files = md.tpr
+transfer_output_files = OutFilesFromGromacs.tar.gz
+should_transfer_files=Yes
+when_to_transfer_output = ON_EXIT
+
+output        = job.out
+error         = job.error
+log           = job.log
+
+requirements = (HAS_CVMFS_oasis_opensciencegrid_org =?= TRUE)
+Queue 1
+
